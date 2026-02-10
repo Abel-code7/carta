@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Karen ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="fondo"></div>
+
+<div class="container">
+    <div class="card">
+        <h1>❤️ Karen Nicole Morales Barrera ❤️</h1>
+
+        <p class="texto">
+            No sé en qué momento exacto pasó,  
+            pero desde que llegaste a mi vida  
+            todo se siente más bonito, más sincero  
+            y mucho más real.
+            <br><br>
+            Pensarte me calma,  
+            tenerte me alegra,  
+            y quererte se siente natural.
+        </p>
+
+        <button onclick="mostrar()">Ábreme 💌</button>
+
+        <p id="mensaje"></p>
+        <p id="pregunta"></p>
+
+        <div id="opciones" class="opciones">
+            <button class="si" onclick="aceptar()">Sí 💖</button>
+            <button class="no" onmouseover="mover()">No 🙈</button>
+        </div>
+
+        <p id="final"></p>
+
+        <div class="music">
+            <p>🎶 Niña Bonita – Dstance</p>
+            <iframe
+                src="https://www.youtube.com/embed/Iq-YwZI6Mb4"
+                title="Niña Bonita - Dstance"
+                frameborder="0"
+                allow="encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+function mostrar() {
+    document.getElementById("mensaje").innerText =
+    "Te amo como Buzz Lightyear: al infinito y más allá 🚀💫❤️";
+
+    document.getElementById("pregunta").innerText =
+    "¿Quieres ser mi San Valentín? 💖";
+
+    document.getElementById("opciones").style.display = "flex";
+}
+
+function aceptar() {
+    document.getElementById("final").innerText =
+    "Sabía que dirías que sí 🥹❤️ Gracias por hacerme tan feliz. Te elijo hoy y siempre.";
+
+    document.getElementById("opciones").style.display = "none";
+}
+
+function mover() {
+    const btn = document.querySelector(".no");
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+</script>
+
+</body>
+</html>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    height: 100vh;
+    background: linear-gradient(180deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+}
+
+/* Fondo animado */
+.fondo::before,
+.fondo::after {
+    content: "❤️ ✨ 💖 ⭐ 💫";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    animation: flotar 20s linear infinite;
+    opacity: 0.4;
+}
+
+.fondo::after {
+    animation-duration: 30s;
+}
+
+@keyframes flotar {
+    from { transform: translateY(100%); }
+    to { transform: translateY(-100%); }
+}
+
+/* Contenedor */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Tarjeta */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    animation: aparecer 1.5s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    color: #c2185b;
+    font-size: 22px;
+}
+
+.texto {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+button {
+    background: #c2185b;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background: #9e144a;
+}
+
+#mensaje {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #c2185b;
+    font-weight: bold;
+}
+
+#pregunta {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #e60073;
+    font-weight: bold;
+}
+
+/* Opciones */
+.opciones {
+    display: none;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.si {
+    background: #e60073;
+}
+
+.no {
+    background: #aaa;
+}
+
+/* Final */
+#final {
+    margin-top: 20px;
+    font-size: 17px;
+    color: #c2185b;
+    font-weight: bold;
+}
+
+/* Música */
+.music {
+    margin-top: 20px;
+}
+
+.music iframe {
+    width: 100%;
+    height: 80px;
+    border-radius: 15px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    h1 { font-size: 20px; }
+    .texto { font-size: 15px; }
+}
